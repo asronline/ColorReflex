@@ -25,11 +25,9 @@ class ViewController: UIViewController {
     var timer: NSTimer?
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.startTimer()
         updateColorLabel()
-        
     }
     
     func startTimer() {
@@ -39,33 +37,28 @@ class ViewController: UIViewController {
     
     func stopTimer() {
         timer?.invalidate()
-        timer = nil
         resetScore()
-        
     }
     
     func tick(timer: NSTimer) {
         println(secondsLeft)
-        secondsLeft--
-        if secondsLeft == 0 {
+        if secondsLeft-- == 0 {
             self.stopTimer()
         }
     }
     
     
     func updateColorLabel(){
-        
         colorLabel.text = colors[Int(arc4random_uniform(4))]
     }
     
-    func scorePoint(){
+    func scorePoint() {
         score++
         secondsLeft++
         scoreLabel.text = String(score)
     }
     
-    func resetScore(){
-        
+    func resetScore() {
         score = 0
         scoreLabel.text = String(score)
     }
@@ -88,7 +81,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
 
