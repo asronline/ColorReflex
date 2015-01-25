@@ -10,22 +10,22 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var colorLabel: UILabel!
-
+    
     let colors = ["red", "green","blue","yellow"]
     var score = 0;
     
-    var secondsLeft: Int = 0
+    var secondsLeft: Int = 5
     var timer: NSTimer?
     
     override func viewDidLoad() {
-       
+        
         super.viewDidLoad()
         self.startTimer()
         updateColorLabel()
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         timer?.invalidate()
         timer = nil
         resetScore()
-
+        
     }
     
     func tick(timer: NSTimer) {
@@ -65,72 +65,30 @@ class ViewController: UIViewController {
     }
     
     func resetScore(){
-    
-    score = 0
-    scoreLabel.text = String(score)
-    }
-
-    @IBAction func redTapped(sender: AnyObject) {
-
-        if(colorLabel.text == "red"){
-            scorePoint()
-        }
         
-        else{
+        score = 0
+        scoreLabel.text = String(score)
+    }
+    
+    
+    @IBAction func colourTapped(sender: UIButton) {
+        if (colorLabel.text == "green" && sender == greenButton) ||
+            (colorLabel.text == "red" && sender == redButton) ||
+            (colorLabel.text == "blue" && sender == blueButton) ||
+            (colorLabel.text == "yellow" && sender == yellowButton) {
+                scorePoint()
+        } else {
             resetScore()
         }
         
         updateColorLabel()
-
-        
-    }
-    
-    @IBAction func greenTapped(sender: AnyObject) {
-        
-        if(colorLabel.text == "green"){
-            scorePoint()
-        }
-            
-        else{
-            resetScore()
-        }
-        
-        updateColorLabel()
-        
-    }
-    
-    @IBAction func blueTapped(sender: AnyObject) {
-        
-        if(colorLabel.text == "blue"){
-            scorePoint()
-        }
-            
-        else{
-            resetScore()
-        }
-        
-        updateColorLabel()
-    }
-    
-    @IBAction func yellowTapped(sender: AnyObject) {
-        
-        if(colorLabel.text == "yellow"){
-            scorePoint()
-        }
-            
-        else{
-            resetScore()
-        }
-        
-        updateColorLabel()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
