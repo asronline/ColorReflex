@@ -18,15 +18,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var colorLabel: UILabel!
     
-    let colors = ["red", "green","blue","yellow"]
-    var score = 0;
+    let colors = ["Red", "Green","Blue","Yellow"]
+    var score: Int = 0 {
+        didSet { scoreLabel.text = String(score) }
+    }
     
     var secondsLeft = 5
-    var timer: NSTimer?
+    var timer: NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.startTimer()
+        startTimer()
         updateColorLabel()
     }
     
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     func stopTimer() {
-        timer?.invalidate()
+        timer.invalidate()
         resetScore()
     }
     
@@ -47,7 +49,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func updateColorLabel(){
         colorLabel.text = colors[Int(arc4random_uniform(4))]
     }
@@ -55,31 +56,19 @@ class ViewController: UIViewController {
     func scorePoint() {
         score++
         secondsLeft++
-        scoreLabel.text = String(score)
     }
     
     func resetScore() {
         score = 0
-        scoreLabel.text = String(score)
     }
     
-    
     @IBAction func colourTapped(sender: UIButton) {
-        if (colorLabel.text == "green" && sender == greenButton) ||
-            (colorLabel.text == "red" && sender == redButton) ||
-            (colorLabel.text == "blue" && sender == blueButton) ||
-            (colorLabel.text == "yellow" && sender == yellowButton) {
-                scorePoint()
+        if colorLabel.text == sender.titleLabel?.text! {
+            scorePoint()
         } else {
             resetScore()
         }
-        
         updateColorLabel()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
