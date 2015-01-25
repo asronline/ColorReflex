@@ -89,8 +89,21 @@
                                     <action selector="colourTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tfM-yA-PBi"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-io-ihv">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="155" y="459" width="90" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ikD-yE-H1B"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xl5-Mu-hi6" firstAttribute="top" secondItem="kBY-k8-Ojo" secondAttribute="bottom" constant="330" id="0Ka-XQ-cxJ"/>
                             <constraint firstItem="kBY-k8-Ojo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="444" id="3Gi-Sq-IqX"/>
@@ -107,6 +120,9 @@
                             <constraint firstItem="kBY-k8-Ojo" firstAttribute="trailing" secondItem="HWg-mS-Zeb" secondAttribute="trailing" id="ySf-cT-0Ci"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cgf-io-ihv"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="3Gi-Sq-IqX"/>
                                 <exclude reference="4Og-Dc-lZt"/>
@@ -124,6 +140,9 @@
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="cgf-io-ihv"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="KSl-7t-pqD"/>
                                 <include reference="PqP-R9-Qj5"/>
@@ -136,14 +155,16 @@
                         <outlet property="blueButton" destination="ZrU-TK-AHE" id="voh-jl-MoL"/>
                         <outlet property="colorLabel" destination="IYq-M2-BGZ" id="NRE-Fc-8bL"/>
                         <outlet property="greenButton" destination="kBY-k8-Ojo" id="a3L-kV-DBC"/>
+                        <outlet property="newGameButton" destination="cgf-io-ihv" id="bSq-Xj-YVl"/>
                         <outlet property="redButton" destination="Zss-TX-Rtt" id="jSz-EN-xqo"/>
                         <outlet property="scoreLabel" destination="Nfe-dQ-4iC" id="imX-8b-gRV"/>
+                        <outlet property="titleLabel" destination="jAG-1R-uqg" id="pAE-gt-D9n"/>
                         <outlet property="yellowButton" destination="HWg-mS-Zeb" id="Thh-7u-wdh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481.5" y="428"/>
+            <point key="canvasLocation" x="481.5" y="442"/>
         </scene>
     </scenes>
 </document>
