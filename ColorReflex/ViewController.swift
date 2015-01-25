@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     let colors = ["red", "green","blue","yellow"]
     var score = 0;
     
-    var secondsLeft: Int = 5
+    var secondsLeft: Int = 3
     var timer: NSTimer?
     
     override func viewDidLoad() {
