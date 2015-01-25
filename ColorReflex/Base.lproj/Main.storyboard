@@ -99,7 +99,7 @@
                                     <rect key="frame" x="155" y="459" width="90" height="58"/>
                                 </variation>
                                 <connections>
-                                    <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ikD-yE-H1B"/>
+                                    <action selector="startNewGame" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cZn-D3-bf0"/>
                                 </connections>
                             </button>
                         </subviews>

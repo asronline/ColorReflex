@@ -20,17 +20,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var newGameButton: UIButton!
     
-    let colors = ["red", "green","blue","yellow"]
-    var score = 0;
+    let colors = ["Red", "Green","Blue","Yellow"]
+    var score: Int = 0 {
+        didSet { scoreLabel.text = String(score) }
+    }
     
     var secondsLeft = 5
-    var timer: NSTimer?
+    var timer: NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.startTimer()
-        updateColorLabel()
+        startNewGame()
     }
     
     func startTimer() {
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     func stopTimer() {
-        timer?.invalidate()
+        timer.invalidate()
         resetScore()
     }
     
@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func updateColorLabel(){
         colorLabel.text = colors[Int(arc4random_uniform(4))]
     }
@@ -58,16 +57,15 @@ class ViewController: UIViewController {
     func scorePoint() {
         score++
         secondsLeft++
-        scoreLabel.text = String(score)
     }
     
     func resetScore() {
         score = 0
-        scoreLabel.text = String(score)
+        titleLabel.text = "GAME OVER!"
         newGameButton.hidden = false
     }
     
-    @IBAction func startNewGame(sender: AnyObject) {
+    @IBAction func startNewGame() {
         secondsLeft = 5
         startTimer()
         updateColorLabel()
@@ -75,22 +73,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func colourTapped(sender: UIButton) {
-        if (colorLabel.text == "green" && sender == greenButton) ||
-            (colorLabel.text == "red" && sender == redButton) ||
-            (colorLabel.text == "blue" && sender == blueButton) ||
-            (colorLabel.text == "yellow" && sender == yellowButton) {
-                scorePoint()
-                updateColorLabel()
-                
+        if colorLabel.text == sender.titleLabel?.text! {
+            scorePoint()
         } else {
             resetScore()
-            titleLabel.text = "GAME OVER!"
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        updateColorLabel()
     }
 }
-
