@@ -30,7 +30,6 @@
                                 </state>
                                 <connections>
                                     <action selector="colourTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EVf-8u-Uf2"/>
-                                    <action selector="redTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fwL-sN-Jmg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBY-k8-Ojo">
@@ -41,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="colourTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Ir-8q-kPm"/>
-                                    <action selector="greenTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pEL-OU-kK7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrU-TK-AHE">
@@ -50,7 +48,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="blueTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="czs-Yt-tg0"/>
                                     <action selector="colourTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Buz-55-u7D"/>
                                 </connections>
                             </button>
@@ -62,7 +59,6 @@
                                 </state>
                                 <connections>
                                     <action selector="colourTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tfM-yA-PBi"/>
-                                    <action selector="yellowTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OWU-HP-zcs"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYq-M2-BGZ">
