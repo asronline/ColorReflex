@@ -40,13 +40,12 @@ class ViewController: UIViewController {
     
     func stopTimer() {
         timer.invalidate()
-        resetScore()
     }
     
     func tick(timer: NSTimer) {
         println(secondsLeft)
         if secondsLeft-- == 0 {
-            self.stopTimer()
+            endGame()
         }
     }
     
@@ -59,25 +58,23 @@ class ViewController: UIViewController {
         secondsLeft++
     }
     
-    func resetScore() {
-        score = 0
+    func endGame() {
+        stopTimer()
         titleLabel.text = "GAME OVER!"
         newGameButton.hidden = false
     }
     
     @IBAction func startNewGame() {
         secondsLeft = 5
+        score = 0
         startTimer()
         updateColorLabel()
+        titleLabel.text = "SCORE"
         newGameButton.hidden = true
     }
     
     @IBAction func colourTapped(sender: UIButton) {
-        if colorLabel.text == sender.titleLabel?.text! {
-            scorePoint()
-        } else {
-            resetScore()
-        }
+        colorLabel.text == sender.titleLabel?.text! ? scorePoint() : endGame()
         updateColorLabel()
     }
 }
